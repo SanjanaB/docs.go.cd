@@ -23,8 +23,11 @@ task :publish => :compile do
   cd "build" do
     rm_rf GOCD_VERSION
     cp_r '../public', GOCD_VERSION
-    sh("git add --all .")
-    sh("git commit -m 'Updating site to latest commit (#{git_short_sha})' &> /dev/null")
-    sh("git push &> /dev/null")
+    response = %x[git status]
+    unless response.include?('nothing to commit')
+      sh("git add --all .")
+      sh("git commit -m 'Updating site to latest commit (#{git_short_sha})'")
+      sh("git push")
+    end
   end
 end
