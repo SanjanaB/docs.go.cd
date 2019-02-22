@@ -1,5 +1,5 @@
 [params]
-  currentBaseURL = "https://docs.gocd.org/current/"
+  currentBaseURL = "https://docs.gocd.org/current"
   # Set source repository location.
   # Used for 'Last Modified' and 'Edit this page' links.
   BookRepo = "https://github.com/gocd/docs.go.cd"
