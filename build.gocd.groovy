@@ -65,7 +65,7 @@ GoCD.script { GoCD buildScript ->
   pipelines {
 
     pipeline("docs.gocd.org-master") {
-      group = 'gocd-help-docs'
+      group = 'test-gocd-help-docs'
       materials {
         git {
           url = 'https://github.com/gocd/docs.go.cd'
@@ -91,7 +91,7 @@ GoCD.script { GoCD buildScript ->
     }
 
     pipeline("docs.gocd.org-PR") {
-      group = 'gocd-help-docs'
+      group = 'test-gocd-help-docs'
       materials {
         pluggable {
           scm = '4b2cfb9e-95ed-4b39-9ac0-cf007f6c7c41'
@@ -108,7 +108,7 @@ GoCD.script { GoCD buildScript ->
 
     ['18.2.0', '18.3.0', '18.4.0', '18.5.0', '18.6.0', '18.7.0', '18.8.0', '18.9.0', '18.10.0', '18.11.0', '18.12.0', '19.1.0'].reverse().each { String releaseVersion ->
       pipeline("docs.gocd.org-${releaseVersion}") {
-        group = "gocd-help-docs"
+        group = 'test-gocd-help-docs'
         materials {
           git {
             url = 'https://github.com/gocd/docs.go.cd'
